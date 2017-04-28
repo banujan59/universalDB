@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 28, 2017 at 05:05 PM
+-- Generation Time: Apr 28, 2017 at 03:45 PM
 -- Server version: 5.6.24
 -- PHP Version: 5.5.24
 
@@ -27,22 +27,21 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `course` (
-  `courseId` int(9) NOT NULL,
+  `courseId` int(11) NOT NULL,
   `type` varchar(10) NOT NULL,
-  `day` varchar(10) NOT NULL,
-  `startTime` datetime NOT NULL,
-  `endTime` datetime NOT NULL,
-  `scheduleId` int(9) NOT NULL
+  `language` varchar(10) NOT NULL,
+  `scheduleId` int(11) NOT NULL,
+  `maxStudents` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `course`
 --
 
-INSERT INTO `course` (`courseId`, `type`, `day`, `startTime`, `endTime`, `scheduleId`) VALUES
-(1, 'regular', 'Monday', '2017-04-10 10:00:00', '2017-04-10 12:00:00', 1),
-(2, 'regular', 'Wednesday', '2017-04-12 14:00:00', '2017-04-12 16:00:00', 2),
-(3, 'truck', 'Friday', '2017-04-14 16:00:00', '2017-04-14 18:00:00', 3);
+INSERT INTO `course` (`courseId`, `type`, `language`, `scheduleId`, `maxStudents`) VALUES
+(1, 'Regular', 'English', 1, 20),
+(2, 'Regular', 'Tamil', 2, 20),
+(3, 'Truck', 'English', 3, 20);
 
 -- --------------------------------------------------------
 
@@ -51,8 +50,20 @@ INSERT INTO `course` (`courseId`, `type`, `day`, `startTime`, `endTime`, `schedu
 --
 
 CREATE TABLE IF NOT EXISTS `schedule` (
-  `scheduleId` int(9) NOT NULL
+  `scheduleId` int(5) NOT NULL,
+  `day` varchar(10) NOT NULL,
+  `dayStart` datetime NOT NULL,
+  `dayEnd` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `schedule`
+--
+
+INSERT INTO `schedule` (`scheduleId`, `day`, `dayStart`, `dayEnd`) VALUES
+(1, 'Monday', '2017-05-18 10:00:00', '2017-05-18 12:00:00'),
+(2, 'Wednesday', '2017-05-20 14:00:00', '2017-05-20 16:00:00'),
+(3, 'Friday', '2017-05-22 12:00:00', '2017-05-22 14:00:00');
 
 -- --------------------------------------------------------
 
@@ -61,15 +72,17 @@ CREATE TABLE IF NOT EXISTS `schedule` (
 --
 
 CREATE TABLE IF NOT EXISTS `students` (
-  `studentId` int(9) NOT NULL,
-  `firstName` varchar(20) NOT NULL,
-  `lastName` varchar(20) NOT NULL,
+  `studentId` int(11) NOT NULL,
+  `firstName` varchar(18) NOT NULL,
+  `lastName` varchar(18) NOT NULL,
   `phoneNumber` bigint(10) NOT NULL,
-  `emergencyContact` bigint(10) NOT NULL,
-  `address` varchar(20) NOT NULL,
-  `birthDate` date NOT NULL,
-  `balance` double NOT NULL,
-  `paymentDue` date NOT NULL,
+  `emergencyPhoneNumber` bigint(10) NOT NULL,
+  `email` varchar(30) NOT NULL,
+  `address` varchar(50) NOT NULL,
+  `birthdate` date NOT NULL,
+  `balance` double(7,2) NOT NULL,
+  `balanceDueDate` date NOT NULL,
+  `courseID` int(11) NOT NULL,
   `language` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -77,31 +90,32 @@ CREATE TABLE IF NOT EXISTS `students` (
 -- Dumping data for table `students`
 --
 
-INSERT INTO `students` (`studentId`, `firstName`, `lastName`, `phoneNumber`, `emergencyContact`, `address`, `birthDate`, `balance`, `paymentDue`, `language`) VALUES
-(1, 'Austin', 'Gobby', 5149994321, 5143245678, '7255 sfgfhdh', '2017-04-12', 0, '0000-00-00', ''),
-(2, 'Banujan', 'lname', 5143214567, 7651239876, '2345 qwerty', '2017-06-15', 75, '2017-06-24', 'Tamil'),
-(3, 'Jeremya', 'lname', 5143214598, 5142121111, '9876 zxvb', '2017-09-20', 500, '2017-04-10', 'french'),
-(4, 'Andrei', 'lname', 5148765432, 5141234567, '1234 street', '2017-06-09', 325, '2017-04-30', ''),
-(5, 'Sergiu', 'lname', 5140987654, 5143971265, '8623 ', '2017-04-21', 75, '2017-06-01', ''),
-(6, 'Alec', 'lname', 5140378143, 3751234956, '1237 MyStreet', '2016-07-05', 120, '2016-05-27', 'French'),
-(7, 'An', 'lname', 6541239552, 5143287450, '3456 Birnam', '2017-12-06', 2, '2017-12-12', ''),
-(8, 'Gio', 'lname', 7881209380, 5149999678, '1230 Liege', '2017-04-18', 500, '2017-03-13', ''),
-(9, 'Luke', 'Skywalker', 5148887777, 5143322116, '7432 Alderon', '2017-08-25', 5000, '2016-10-18', ''),
-(10, 'Obiwan', 'Kanobi', 982387128, 2348761234, '0278 Mustafar', '2017-04-18', 25, '2017-07-13', 'Tamil'),
-(11, 'Darlene', 'Pratt', 1239420834, 6326871278, '1285 MyAddress', '2017-07-19', 88, '2017-12-13', ''),
-(12, 'Janet', 'Perez', 865122222, 1271118423, '599 Stuart', '2016-06-21', 122, '2017-04-16', 'French'),
-(13, 'Jeannette ', 'Lambert', 2229872344, 22245719932, '1222 Danvers', '2015-09-09', 12, '2017-11-02', 'Tamil'),
-(14, 'Tracy', 'McGrady', 5149999433, 5147149999, '4567 Querbs', '2016-06-27', 555, '2018-03-08', ''),
-(15, 'Alvin ', 'Adams', 1239876123, 5143333333, '786 Jean-Talon', '2017-02-15', 9, '2017-04-04', ''),
-(16, 'Gabriel', 'Olson', 3338763456, 3331234098, '472 Namur', '2017-04-11', 800, '2017-08-23', ''),
-(17, 'Tyler', 'Burgass', 4325678900, 4324567321, '7894 Jean-Talon', '2017-04-19', 25.5, '2017-11-10', 'French'),
-(18, 'Patty', 'Martinez', 2279876345, 1234781234, '5678 Ogilvy', '2017-11-09', 50, '2016-10-12', 'Tamil'),
-(19, 'Mathieu ', 'Boileau', 1239864247, 2467855867, '5432 Lolololol', '2017-04-30', 9000, '2017-03-13', 'French'),
-(20, 'Jeremya', 'lname', 4329876234, 2340987456, '234 Addresss', '2016-12-13', 12, '2017-04-05', 'Tamil'),
-(21, 'Roxanne', 'Caldwell', 5447657777, 4321234444, '1234 Querbs', '2016-04-19', 500, '2017-04-04', ''),
-(22, 'Willard', 'Cannon', 3456789098, 3452345677, '456 Stuart', '2017-01-09', 0, '2017-04-02', ''),
-(23, 'Adam', 'Adams', 911, 911, '123 PoliceStation', '2016-07-18', 0, '2017-04-19', 'French'),
-(24, 'Bob', 'Barker', 5149990432, 1234567890, '7651 ', '2017-04-13', 59, '2017-04-09', '');
+INSERT INTO `students` (`studentId`, `firstName`, `lastName`, `phoneNumber`, `emergencyPhoneNumber`, `email`, `address`, `birthdate`, `balance`, `balanceDueDate`, `courseID`, `language`) VALUES
+(1, 'John', 'Doe', 2147483647, 2147483647, 'john@example.com', '7483 Sherbrooke street, Montre', '1990-01-05', 800.99, '0000-00-00', 1, ''),
+(2, 'Austin', 'Janovich', 514516847, 514516849, 'austinjanovich@email.com', '9876 random street, montreal ', '2017-04-18', 562.56, '2017-04-29', 2, 'tamil'),
+(3, 'Sergiu', 'lname', 5674, 2345, 'email@emaill.com', '1234567 hi', '2017-04-02', 50.00, '2017-04-03', 3, ''),
+(4, 'Jeremya', 'lname', 7632, 12345, 'email@email.com', '987654 address', '2017-05-31', 654.00, '2017-02-12', 1, 'french'),
+(5, 'Banujan ', 'lname', 856543, 9876, 'email@email.com', '6543 rgonrg', '2017-07-18', 5675.00, '2017-05-10', 2, 'tamil'),
+(6, 'Andrei', 'lname', 98765, 345678, 'email.hotmail.com', '8765 qwertty', '2017-05-11', 5.00, '2017-07-21', 2, ''),
+(7, 'Gio', 'lname', 987654, 34567, 'email@gmail.com', '87654 mnbvc', '2017-05-17', 500.00, '2017-07-19', 1, 'french'),
+(8, 'Alec', 'lname', 876543, 9876, 'email@hotmail.com', '456 sdfg', '2017-04-23', 300.00, '2017-10-11', 2, ''),
+(9, 'An', 'lname', 1346, 864, 'email@hotmail.com', '76543 bdfvcgf', '2017-04-12', 23.00, '2017-04-13', 1, ''),
+(10, 'Json', 'lname', 7654, 234, 'email@yahoo.com', '8765 hjgfkdl', '2017-06-02', 50.00, '2017-04-09', 1, ''),
+(11, 'Tris', 'Prior', 1234, 5678, 'tris@prior.com', '1234 Divergent Street', '2017-04-01', 1.99, '2017-04-27', 1, 'french'),
+(12, 'Katniss', 'Everdeen', 2345, 6789, 'katniss@everdeen.com', '2345 Mockingjay Street', '2017-04-02', 456.00, '2017-04-30', 2, 'tamil'),
+(13, 'James', 'Bond', 7777, 707, 'james@bond.com', '7777 Goldfinger Street', '2017-04-03', 77.77, '2017-04-29', 2, ''),
+(14, 'Claire', 'Farron', 3456, 7890, 'claire@farron.com', '3456 L''Cie Street', '2017-04-04', 13000.13, '2017-04-26', 1, ''),
+(15, 'Noctis', 'Caelum', 4567, 8901, 'noctis@caelum.com', '4567 Insomnia Boulevard', '2017-04-12', 1515.00, '2017-04-23', 1, 'french'),
+(16, 'Sora', 'Shore', 8901, 2345, 'sora@shore.com', '8901 Destiny Drive', '2017-04-06', 789.56, '2017-04-20', 2, ''),
+(17, 'Ororo', 'Munroe', 9012, 3456, 'ororo@munroe.com', '9012 Storm Drive', '2017-04-13', 333.33, '2017-04-21', 1, 'tamil'),
+(18, 'Peter', 'Parker', 123, 4567, 'peter@parker.com', '123 Arachnid Road', '2017-04-15', 2006.12, '2017-04-28', 2, ''),
+(19, 'Leonard', 'Hofstadter', 4567, 8901, 'leonard@hofstadter.com', '4567 Theorist Avenue', '2017-04-15', 987.65, '2017-04-16', 2, ''),
+(20, 'Buzz', 'Lightyear', 8901, 2345, 'buzz@lightyear.com', '8901 Pixar Drive', '2017-04-22', 1995.99, '2017-04-30', 1, 'french'),
+(21, 'Melanie', 'Moretti', 2345, 2346, 'melanie@moretti.com', '2346 Cleveland Road', '2017-04-05', 2010.88, '2017-04-30', 1, ''),
+(22, 'Xiaoyang', 'Zhu', 9876, 5432, 'zhu@xiaoyang.com', '9876 Yellow Road', '2017-04-14', 1234.45, '2017-04-25', 2, 'french'),
+(23, 'Kara', 'Danvers', 1938, 2015, 'kara@danvers.com', '1938 Krypton Avenue', '2017-04-14', 99999.99, '2017-04-28', 2, ''),
+(24, 'David', 'Dunn', 2000, 2017, 'david@dunn.com', '2000 Unbreakable Boulevard', '2017-04-07', 0.00, '2017-04-25', 2, ''),
+(25, 'Casey', 'Cooke', 8888, 6666, 'casey@cooke.com', '6666 Split Boulevard', '2017-04-02', 5.00, '2017-04-28', 1, 'tamil');
 
 -- --------------------------------------------------------
 
@@ -111,7 +125,8 @@ INSERT INTO `students` (`studentId`, `firstName`, `lastName`, `phoneNumber`, `em
 
 CREATE TABLE IF NOT EXISTS `users` (
   `userId` int(9) NOT NULL,
-  `email` varchar(20) NOT NULL,
+  `userType` varchar(10) NOT NULL,
+  `email` varchar(30) NOT NULL,
   `password` varchar(20) NOT NULL,
   `studentId` int(9) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -120,11 +135,11 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`userId`, `email`, `password`, `studentId`) VALUES
-(1, 'admin@gmail.com', 'admin', 0),
-(2, 'student1@gmail.com', 'student1', 1),
-(3, 'student2@gmail.com', 'student2', 2),
-(4, 'student3@gmail.com', 'student3', 3);
+INSERT INTO `users` (`userId`, `userType`, `email`, `password`, `studentId`) VALUES
+(1, 'admin', 'admin@gmail.com', 'admin', 0),
+(2, 'student', 'student1@gmail.com', 'student1', 1),
+(3, 'student2', 'student2@gmail.com', 'student2', 2),
+(4, 'student3', 'student3@gmail.com', 'student3', 3);
 
 --
 -- Indexes for dumped tables
@@ -134,25 +149,25 @@ INSERT INTO `users` (`userId`, `email`, `password`, `studentId`) VALUES
 -- Indexes for table `course`
 --
 ALTER TABLE `course`
-  ADD PRIMARY KEY (`courseId`), ADD KEY `courseId` (`courseId`,`scheduleId`);
+  ADD PRIMARY KEY (`courseId`), ADD KEY `scheduleId` (`scheduleId`), ADD KEY `courseId` (`courseId`), ADD KEY `scheduleId_2` (`scheduleId`), ADD KEY `courseId_2` (`courseId`), ADD KEY `courseId_3` (`courseId`,`scheduleId`), ADD KEY `courseId_4` (`courseId`,`scheduleId`);
 
 --
 -- Indexes for table `schedule`
 --
 ALTER TABLE `schedule`
-  ADD PRIMARY KEY (`scheduleId`);
+  ADD PRIMARY KEY (`scheduleId`), ADD KEY `scheduleId` (`scheduleId`);
 
 --
 -- Indexes for table `students`
 --
 ALTER TABLE `students`
-  ADD PRIMARY KEY (`studentId`), ADD KEY `studentId` (`studentId`);
+  ADD PRIMARY KEY (`studentId`), ADD UNIQUE KEY `studentId` (`studentId`), ADD KEY `courseID` (`courseID`), ADD KEY `courseID_2` (`courseID`), ADD KEY `studentId_2` (`studentId`,`courseID`);
 
 --
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
-  ADD KEY `userId` (`userId`,`studentId`);
+  ADD PRIMARY KEY (`userId`), ADD KEY `userId` (`userId`,`studentId`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
