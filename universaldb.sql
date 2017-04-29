@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.3.11
+-- version 4.5.1
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 28, 2017 at 03:45 PM
--- Server version: 5.6.24
--- PHP Version: 5.5.24
+-- Generation Time: Apr 29, 2017 at 09:55 PM
+-- Server version: 10.1.19-MariaDB
+-- PHP Version: 5.6.24
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `universaldb`
@@ -26,7 +26,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `course`
 --
 
-CREATE TABLE IF NOT EXISTS `course` (
+CREATE TABLE `course` (
   `courseId` int(11) NOT NULL,
   `type` varchar(10) NOT NULL,
   `language` varchar(10) NOT NULL,
@@ -49,7 +49,7 @@ INSERT INTO `course` (`courseId`, `type`, `language`, `scheduleId`, `maxStudents
 -- Table structure for table `schedule`
 --
 
-CREATE TABLE IF NOT EXISTS `schedule` (
+CREATE TABLE `schedule` (
   `scheduleId` int(5) NOT NULL,
   `day` varchar(10) NOT NULL,
   `dayStart` datetime NOT NULL,
@@ -71,7 +71,7 @@ INSERT INTO `schedule` (`scheduleId`, `day`, `dayStart`, `dayEnd`) VALUES
 -- Table structure for table `students`
 --
 
-CREATE TABLE IF NOT EXISTS `students` (
+CREATE TABLE `students` (
   `studentId` int(11) NOT NULL,
   `firstName` varchar(18) NOT NULL,
   `lastName` varchar(18) NOT NULL,
@@ -91,31 +91,31 @@ CREATE TABLE IF NOT EXISTS `students` (
 --
 
 INSERT INTO `students` (`studentId`, `firstName`, `lastName`, `phoneNumber`, `emergencyPhoneNumber`, `email`, `address`, `birthdate`, `balance`, `balanceDueDate`, `courseID`, `language`) VALUES
-(1, 'John', 'Doe', 2147483647, 2147483647, 'john@example.com', '7483 Sherbrooke street, Montre', '1990-01-05', 800.99, '0000-00-00', 1, ''),
+(1, 'John', 'Doe', 2147483647, 2147483647, 'john@example.com', '7483 Sherbrooke street, Montre', '1990-01-05', 800.99, '2017-04-11', 1, ''),
 (2, 'Austin', 'Janovich', 514516847, 514516849, 'austinjanovich@email.com', '9876 random street, montreal ', '2017-04-18', 562.56, '2017-04-29', 2, 'tamil'),
-(3, 'Sergiu', 'lname', 5674, 2345, 'email@emaill.com', '1234567 hi', '2017-04-02', 50.00, '2017-04-03', 3, ''),
-(4, 'Jeremya', 'lname', 7632, 12345, 'email@email.com', '987654 address', '2017-05-31', 654.00, '2017-02-12', 1, 'french'),
-(5, 'Banujan ', 'lname', 856543, 9876, 'email@email.com', '6543 rgonrg', '2017-07-18', 5675.00, '2017-05-10', 2, 'tamil'),
-(6, 'Andrei', 'lname', 98765, 345678, 'email.hotmail.com', '8765 qwertty', '2017-05-11', 5.00, '2017-07-21', 2, ''),
-(7, 'Gio', 'lname', 987654, 34567, 'email@gmail.com', '87654 mnbvc', '2017-05-17', 500.00, '2017-07-19', 1, 'french'),
-(8, 'Alec', 'lname', 876543, 9876, 'email@hotmail.com', '456 sdfg', '2017-04-23', 300.00, '2017-10-11', 2, ''),
-(9, 'An', 'lname', 1346, 864, 'email@hotmail.com', '76543 bdfvcgf', '2017-04-12', 23.00, '2017-04-13', 1, ''),
-(10, 'Json', 'lname', 7654, 234, 'email@yahoo.com', '8765 hjgfkdl', '2017-06-02', 50.00, '2017-04-09', 1, ''),
-(11, 'Tris', 'Prior', 1234, 5678, 'tris@prior.com', '1234 Divergent Street', '2017-04-01', 1.99, '2017-04-27', 1, 'french'),
-(12, 'Katniss', 'Everdeen', 2345, 6789, 'katniss@everdeen.com', '2345 Mockingjay Street', '2017-04-02', 456.00, '2017-04-30', 2, 'tamil'),
-(13, 'James', 'Bond', 7777, 707, 'james@bond.com', '7777 Goldfinger Street', '2017-04-03', 77.77, '2017-04-29', 2, ''),
-(14, 'Claire', 'Farron', 3456, 7890, 'claire@farron.com', '3456 L''Cie Street', '2017-04-04', 13000.13, '2017-04-26', 1, ''),
-(15, 'Noctis', 'Caelum', 4567, 8901, 'noctis@caelum.com', '4567 Insomnia Boulevard', '2017-04-12', 1515.00, '2017-04-23', 1, 'french'),
-(16, 'Sora', 'Shore', 8901, 2345, 'sora@shore.com', '8901 Destiny Drive', '2017-04-06', 789.56, '2017-04-20', 2, ''),
-(17, 'Ororo', 'Munroe', 9012, 3456, 'ororo@munroe.com', '9012 Storm Drive', '2017-04-13', 333.33, '2017-04-21', 1, 'tamil'),
-(18, 'Peter', 'Parker', 123, 4567, 'peter@parker.com', '123 Arachnid Road', '2017-04-15', 2006.12, '2017-04-28', 2, ''),
-(19, 'Leonard', 'Hofstadter', 4567, 8901, 'leonard@hofstadter.com', '4567 Theorist Avenue', '2017-04-15', 987.65, '2017-04-16', 2, ''),
-(20, 'Buzz', 'Lightyear', 8901, 2345, 'buzz@lightyear.com', '8901 Pixar Drive', '2017-04-22', 1995.99, '2017-04-30', 1, 'french'),
-(21, 'Melanie', 'Moretti', 2345, 2346, 'melanie@moretti.com', '2346 Cleveland Road', '2017-04-05', 2010.88, '2017-04-30', 1, ''),
-(22, 'Xiaoyang', 'Zhu', 9876, 5432, 'zhu@xiaoyang.com', '9876 Yellow Road', '2017-04-14', 1234.45, '2017-04-25', 2, 'french'),
-(23, 'Kara', 'Danvers', 1938, 2015, 'kara@danvers.com', '1938 Krypton Avenue', '2017-04-14', 99999.99, '2017-04-28', 2, ''),
-(24, 'David', 'Dunn', 2000, 2017, 'david@dunn.com', '2000 Unbreakable Boulevard', '2017-04-07', 0.00, '2017-04-25', 2, ''),
-(25, 'Casey', 'Cooke', 8888, 6666, 'casey@cooke.com', '6666 Split Boulevard', '2017-04-02', 5.00, '2017-04-28', 1, 'tamil');
+(3, 'Sergiu', 'Vaninovich', 514516847, 514516847, 'email@emaill.com', '1234567 hi', '2017-04-02', 50.00, '2017-04-03', 3, ''),
+(4, 'Jeremya', 'Vaninovich', 514516847, 514516847, 'email@email.com', '987654 address', '2017-05-31', 654.00, '2017-02-12', 1, 'french'),
+(5, 'Banujan ', 'Vaninovich', 514516847, 514516847, 'email@email.com', '6543 rgonrg', '2017-07-18', 5675.00, '2017-05-10', 2, 'tamil'),
+(6, 'Andrei', 'Vaninovich', 514516847, 514516847, 'email.hotmail.com', '8765 qwertty', '2017-05-11', 5.00, '2017-07-21', 2, ''),
+(7, 'Gio', 'Vaninovich', 514516847, 514516847, 'email@gmail.com', '87654 mnbvc', '2017-05-17', 500.00, '2017-07-19', 1, 'french'),
+(8, 'Alec', 'Vaninovich', 514516847, 514516847, 'email@hotmail.com', '456 sdfg', '2017-04-23', 300.00, '2017-10-11', 2, ''),
+(9, 'An', 'Vaninovich', 514516847, 514516847, 'email@hotmail.com', '76543 bdfvcgf', '2017-04-12', 23.00, '2017-04-13', 1, ''),
+(10, 'Json', 'Vaninovich', 514516847, 514516847, 'email@yahoo.com', '8765 hjgfkdl', '2017-06-02', 50.00, '2017-04-09', 1, ''),
+(11, 'Tris', 'Prior', 514516847, 514516847, 'tris@prior.com', '1234 Divergent Street', '2017-04-01', 1.99, '2017-04-27', 1, 'french'),
+(12, 'Katniss', 'Everdeen', 514516847, 514516847, 'katniss@everdeen.com', '2345 Mockingjay Street', '2017-04-02', 456.00, '2017-04-30', 2, 'tamil'),
+(13, 'James', 'Bond', 514516847, 514516847, 'james@bond.com', '7777 Goldfinger Street', '2017-04-03', 77.77, '2017-04-29', 2, ''),
+(14, 'Claire', 'Farron', 514516847, 514516847, 'claire@farron.com', '3456 L''Cie Street', '2017-04-04', 13000.13, '2017-04-26', 1, ''),
+(15, 'Noctis', 'Caelum', 514516847, 514516847, 'noctis@caelum.com', '4567 Insomnia Boulevard', '2017-04-12', 1515.00, '2017-04-23', 1, 'french'),
+(16, 'Sora', 'Shore', 514516847, 514516847, 'sora@shore.com', '8901 Destiny Drive', '2017-04-06', 789.56, '2017-04-20', 2, ''),
+(17, 'Ororo', 'Munroe', 514516847, 514516847, 'ororo@munroe.com', '9012 Storm Drive', '2017-04-13', 333.33, '2017-04-21', 1, 'tamil'),
+(18, 'Peter', 'Parker', 514516847, 514516847, 'peter@parker.com', '123 Arachnid Road', '2017-04-15', 2006.12, '2017-04-28', 2, ''),
+(19, 'Leonard', 'Hofstadter', 514516847, 514516847, 'leonard@hofstadter.com', '4567 Theorist Avenue', '2017-04-15', 987.65, '2017-04-16', 2, ''),
+(20, 'Buzz', 'Lightyear', 514516847, 514516847, 'buzz@lightyear.com', '8901 Pixar Drive', '2017-04-22', 1995.99, '2017-04-30', 1, 'french'),
+(21, 'Jonay', 'Moretti', 514516847, 514516847, 'melanie@moretti.com', '2346 Cleveland Road', '2017-04-05', 2010.88, '2017-04-30', 1, ''),
+(22, 'Xiaoyang', 'Zhu', 514516847, 514516847, 'zhu@xiaoyang.com', '9876 Yellow Road', '2017-04-14', 1234.45, '2017-04-25', 2, 'french'),
+(23, 'Kara', 'Danvers', 514516847, 514516847, 'kara@danvers.com', '1938 Krypton Avenue', '2017-04-14', 99999.99, '2017-04-28', 2, ''),
+(24, 'David', 'Dunn', 514516847, 514516847, 'david@dunn.com', '2000 Unbreakable Boulevard', '2017-04-07', 0.00, '2017-04-25', 2, ''),
+(25, 'Casey', 'Cooke', 514516847, 514516847, 'casey@cooke.com', '6666 Split Boulevard', '2017-04-02', 5.00, '2017-04-28', 1, 'tamil');
 
 -- --------------------------------------------------------
 
@@ -123,7 +123,7 @@ INSERT INTO `students` (`studentId`, `firstName`, `lastName`, `phoneNumber`, `em
 -- Table structure for table `users`
 --
 
-CREATE TABLE IF NOT EXISTS `users` (
+CREATE TABLE `users` (
   `userId` int(9) NOT NULL,
   `userType` varchar(10) NOT NULL,
   `email` varchar(30) NOT NULL,
@@ -149,25 +149,37 @@ INSERT INTO `users` (`userId`, `userType`, `email`, `password`, `studentId`) VAL
 -- Indexes for table `course`
 --
 ALTER TABLE `course`
-  ADD PRIMARY KEY (`courseId`), ADD KEY `scheduleId` (`scheduleId`), ADD KEY `courseId` (`courseId`), ADD KEY `scheduleId_2` (`scheduleId`), ADD KEY `courseId_2` (`courseId`), ADD KEY `courseId_3` (`courseId`,`scheduleId`), ADD KEY `courseId_4` (`courseId`,`scheduleId`);
+  ADD PRIMARY KEY (`courseId`),
+  ADD KEY `scheduleId` (`scheduleId`),
+  ADD KEY `courseId` (`courseId`),
+  ADD KEY `scheduleId_2` (`scheduleId`),
+  ADD KEY `courseId_2` (`courseId`),
+  ADD KEY `courseId_3` (`courseId`,`scheduleId`),
+  ADD KEY `courseId_4` (`courseId`,`scheduleId`);
 
 --
 -- Indexes for table `schedule`
 --
 ALTER TABLE `schedule`
-  ADD PRIMARY KEY (`scheduleId`), ADD KEY `scheduleId` (`scheduleId`);
+  ADD PRIMARY KEY (`scheduleId`),
+  ADD KEY `scheduleId` (`scheduleId`);
 
 --
 -- Indexes for table `students`
 --
 ALTER TABLE `students`
-  ADD PRIMARY KEY (`studentId`), ADD UNIQUE KEY `studentId` (`studentId`), ADD KEY `courseID` (`courseID`), ADD KEY `courseID_2` (`courseID`), ADD KEY `studentId_2` (`studentId`,`courseID`);
+  ADD PRIMARY KEY (`studentId`),
+  ADD UNIQUE KEY `studentId` (`studentId`),
+  ADD KEY `courseID` (`courseID`),
+  ADD KEY `courseID_2` (`courseID`),
+  ADD KEY `studentId_2` (`studentId`,`courseID`);
 
 --
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`userId`), ADD KEY `userId` (`userId`,`studentId`);
+  ADD PRIMARY KEY (`userId`),
+  ADD KEY `userId` (`userId`,`studentId`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
