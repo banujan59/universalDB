@@ -1,11 +1,17 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.6.5.2
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
+<<<<<<< HEAD
 -- Generation Time: Apr 29, 2017 at 10:39 PM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 5.6.24
+=======
+-- Generation Time: Apr 30, 2017 at 04:53 AM
+-- Server version: 10.1.21-MariaDB
+-- PHP Version: 7.1.1
+>>>>>>> origin/master
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -91,31 +97,36 @@ CREATE TABLE `students` (
 --
 
 INSERT INTO `students` (`studentId`, `firstName`, `lastName`, `phoneNumber`, `emergencyPhoneNumber`, `email`, `address`, `birthdate`, `balance`, `balanceDueDate`, `courseID`, `language`) VALUES
+<<<<<<< HEAD
 (1, 'John', 'Doe', 2147483647, 2147483647, 'john@example.com', '7483 Sherbrooke street, Montre', '1990-01-05', 0.00, '2017-04-11', 1, ''),
 (2, 'Austin', 'Janovich', 514516847, 514516849, 'austinjanovich@email.com', '9876 random street, montreal ', '2017-04-18', 562.56, '2017-04-29', 2, 'tamil'),
+=======
+(1, 'John', 'Doe', 2147483647, 2147483647, 'john@example.com', '7483 Sherbrooke street, Montre', '1990-01-05', 800.99, '2017-04-11', 1, ''),
+(2, 'Austin', 'Janovich', 514516847, 514516849, 'austinjanovich@email.com', '9876 random street, montreal ', '2017-04-18', 562.56, '2017-04-29', 2, 'English'),
+>>>>>>> origin/master
 (3, 'Sergiu', 'Vaninovich', 514516847, 514516847, 'email@emaill.com', '1234567 hi', '2017-04-02', 50.00, '2017-04-03', 3, ''),
-(4, 'Jeremya', 'Vaninovich', 514516847, 514516847, 'email@email.com', '987654 address', '2017-05-31', 654.00, '2017-02-12', 1, 'french'),
-(5, 'Banujan ', 'Vaninovich', 514516847, 514516847, 'email@email.com', '6543 rgonrg', '2017-07-18', 5675.00, '2017-05-10', 2, 'tamil'),
+(4, 'Jeremya', 'Vaninovich', 514516847, 514516847, 'email@email.com', '987654 address', '2017-05-31', 654.00, '2017-02-12', 1, 'French'),
+(5, 'Banujan ', 'Vaninovich', 514516847, 514516847, 'email@email.com', '6543 rgonrg', '2017-07-18', 5675.00, '2017-05-10', 2, 'Tamil'),
 (6, 'Andrei', 'Vaninovich', 514516847, 514516847, 'email.hotmail.com', '8765 qwertty', '2017-05-11', 5.00, '2017-07-21', 2, ''),
-(7, 'Gio', 'Vaninovich', 514516847, 514516847, 'email@gmail.com', '87654 mnbvc', '2017-05-17', 500.00, '2017-07-19', 1, 'french'),
+(7, 'Gio', 'Vaninovich', 514516847, 514516847, 'email@gmail.com', '87654 mnbvc', '2017-05-17', 500.00, '2017-07-19', 1, 'French'),
 (8, 'Alec', 'Vaninovich', 514516847, 514516847, 'email@hotmail.com', '456 sdfg', '2017-04-23', 300.00, '2017-10-11', 2, ''),
 (9, 'An', 'Vaninovich', 514516847, 514516847, 'email@hotmail.com', '76543 bdfvcgf', '2017-04-12', 23.00, '2017-04-13', 1, ''),
 (10, 'Json', 'Vaninovich', 514516847, 514516847, 'email@yahoo.com', '8765 hjgfkdl', '2017-06-02', 50.00, '2017-04-09', 1, ''),
-(11, 'Tris', 'Prior', 514516847, 514516847, 'tris@prior.com', '1234 Divergent Street', '2017-04-01', 1.99, '2017-04-27', 1, 'french'),
-(12, 'Katniss', 'Everdeen', 514516847, 514516847, 'katniss@everdeen.com', '2345 Mockingjay Street', '2017-04-02', 456.00, '2017-04-30', 2, 'tamil'),
+(11, 'Tris', 'Prior', 514516847, 514516847, 'tris@prior.com', '1234 Divergent Street', '2017-04-01', 1.99, '2017-04-27', 1, 'French'),
+(12, 'Katniss', 'Everdeen', 514516847, 514516847, 'katniss@everdeen.com', '2345 Mockingjay Street', '2017-04-02', 456.00, '2017-04-30', 2, 'Tamil'),
 (13, 'James', 'Bond', 514516847, 514516847, 'james@bond.com', '7777 Goldfinger Street', '2017-04-03', 77.77, '2017-04-29', 2, ''),
-(14, 'Claire', 'Farron', 514516847, 514516847, 'claire@farron.com', '3456 L''Cie Street', '2017-04-04', 13000.13, '2017-04-26', 1, ''),
-(15, 'Noctis', 'Caelum', 514516847, 514516847, 'noctis@caelum.com', '4567 Insomnia Boulevard', '2017-04-12', 1515.00, '2017-04-23', 1, 'french'),
+(14, 'Claire', 'Farron', 514516847, 514516847, 'claire@farron.com', '3456 L\'Cie Street', '2017-04-04', 13000.13, '2017-04-26', 1, ''),
+(15, 'Noctis', 'Caelum', 514516847, 514516847, 'noctis@caelum.com', '4567 Insomnia Boulevard', '2017-04-12', 1515.00, '2017-04-23', 1, 'French'),
 (16, 'Sora', 'Shore', 514516847, 514516847, 'sora@shore.com', '8901 Destiny Drive', '2017-04-06', 789.56, '2017-04-20', 2, ''),
-(17, 'Ororo', 'Munroe', 514516847, 514516847, 'ororo@munroe.com', '9012 Storm Drive', '2017-04-13', 333.33, '2017-04-21', 1, 'tamil'),
+(17, 'Ororo', 'Munroe', 514516847, 514516847, 'ororo@munroe.com', '9012 Storm Drive', '2017-04-13', 333.33, '2017-04-21', 1, 'Tamil'),
 (18, 'Peter', 'Parker', 514516847, 514516847, 'peter@parker.com', '123 Arachnid Road', '2017-04-15', 2006.12, '2017-04-28', 2, ''),
 (19, 'Leonard', 'Hofstadter', 514516847, 514516847, 'leonard@hofstadter.com', '4567 Theorist Avenue', '2017-04-15', 987.65, '2017-04-16', 2, ''),
-(20, 'Buzz', 'Lightyear', 514516847, 514516847, 'buzz@lightyear.com', '8901 Pixar Drive', '2017-04-22', 1995.99, '2017-04-30', 1, 'french'),
+(20, 'Buzz', 'Lightyear', 514516847, 514516847, 'buzz@lightyear.com', '8901 Pixar Drive', '2017-04-22', 1995.99, '2017-04-30', 1, 'French'),
 (21, 'Jonay', 'Moretti', 514516847, 514516847, 'melanie@moretti.com', '2346 Cleveland Road', '2017-04-05', 2010.88, '2017-04-30', 1, ''),
-(22, 'Xiaoyang', 'Zhu', 514516847, 514516847, 'zhu@xiaoyang.com', '9876 Yellow Road', '2017-04-14', 1234.45, '2017-04-25', 2, 'french'),
+(22, 'Xiaoyang', 'Zhu', 514516847, 514516847, 'zhu@xiaoyang.com', '9876 Yellow Road', '2017-04-14', 1234.45, '2017-04-25', 2, 'French'),
 (23, 'Kara', 'Danvers', 514516847, 514516847, 'kara@danvers.com', '1938 Krypton Avenue', '2017-04-14', 99999.99, '2017-04-28', 2, ''),
 (24, 'David', 'Dunn', 514516847, 514516847, 'david@dunn.com', '2000 Unbreakable Boulevard', '2017-04-07', 0.00, '2017-04-25', 2, ''),
-(25, 'Casey', 'Cooke', 514516847, 514516847, 'casey@cooke.com', '6666 Split Boulevard', '2017-04-02', 5.00, '2017-04-28', 1, 'tamil');
+(25, 'Casey', 'Cooke', 514516847, 514516847, 'casey@cooke.com', '6666 Split Boulevard', '2017-04-02', 5.00, '2017-04-28', 1, 'Tamil');
 
 -- --------------------------------------------------------
 
