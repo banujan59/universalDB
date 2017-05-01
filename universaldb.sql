@@ -3,15 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
-<<<<<<< HEAD
--- Generation Time: Apr 29, 2017 at 10:39 PM
--- Server version: 10.1.19-MariaDB
--- PHP Version: 5.6.24
-=======
 -- Generation Time: Apr 30, 2017 at 04:53 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.1
->>>>>>> origin/master
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -97,13 +91,8 @@ CREATE TABLE `students` (
 --
 
 INSERT INTO `students` (`studentId`, `firstName`, `lastName`, `phoneNumber`, `emergencyPhoneNumber`, `email`, `address`, `birthdate`, `balance`, `balanceDueDate`, `courseID`, `language`) VALUES
-<<<<<<< HEAD
-(1, 'John', 'Doe', 2147483647, 2147483647, 'john@example.com', '7483 Sherbrooke street, Montre', '1990-01-05', 0.00, '2017-04-11', 1, ''),
-(2, 'Austin', 'Janovich', 514516847, 514516849, 'austinjanovich@email.com', '9876 random street, montreal ', '2017-04-18', 562.56, '2017-04-29', 2, 'tamil'),
-=======
 (1, 'John', 'Doe', 2147483647, 2147483647, 'john@example.com', '7483 Sherbrooke street, Montre', '1990-01-05', 800.99, '2017-04-11', 1, ''),
 (2, 'Austin', 'Janovich', 514516847, 514516849, 'austinjanovich@email.com', '9876 random street, montreal ', '2017-04-18', 562.56, '2017-04-29', 2, 'English'),
->>>>>>> origin/master
 (3, 'Sergiu', 'Vaninovich', 514516847, 514516847, 'email@emaill.com', '1234567 hi', '2017-04-02', 50.00, '2017-04-03', 3, ''),
 (4, 'Jeremya', 'Vaninovich', 514516847, 514516847, 'email@email.com', '987654 address', '2017-05-31', 654.00, '2017-02-12', 1, 'French'),
 (5, 'Banujan ', 'Vaninovich', 514516847, 514516847, 'email@email.com', '6543 rgonrg', '2017-07-18', 5675.00, '2017-05-10', 2, 'Tamil'),
@@ -149,8 +138,8 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`userId`, `userType`, `email`, `password`, `studentId`) VALUES
 (1, 'admin', 'admin@gmail.com', 'admin', 0),
 (2, 'student', 'student1@gmail.com', 'student1', 1),
-(3, 'student', 'student2@gmail.com', 'student2', 2),
-(4, 'student', 'student3@gmail.com', 'student3', 3);
+(3, 'student2', 'student2@gmail.com', 'student2', 2),
+(4, 'student3', 'student3@gmail.com', 'student3', 3);
 
 --
 -- Indexes for dumped tables
