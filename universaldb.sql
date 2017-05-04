@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 01, 2017 at 05:19 PM
+-- Generation Time: May 04, 2017 at 07:42 PM
 -- Server version: 5.6.24
 -- PHP Version: 5.5.24
 
@@ -63,7 +63,7 @@ CREATE TABLE IF NOT EXISTS `schedule` (
 INSERT INTO `schedule` (`scheduleId`, `day`, `dayStart`, `dayEnd`) VALUES
 (1, 'Monday', '2017-05-18 10:00:00', '2017-05-18 12:00:00'),
 (2, 'Wednesday', '2017-05-20 14:00:00', '2017-05-20 16:00:00'),
-(3, 'Friday', '2017-05-22 12:00:00', '2017-05-22 14:00:00');
+(3, 'Saturday', '2017-05-22 12:00:00', '2017-05-22 14:00:00');
 
 -- --------------------------------------------------------
 
