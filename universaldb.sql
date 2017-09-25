@@ -17,28 +17,28 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `universaldb`
+-- Database: 'universaldb'
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `course`
+-- Table structure for table 'course'
 --
 
-CREATE TABLE IF NOT EXISTS `course` (
-  `courseId` int(11) NOT NULL,
-  `type` varchar(10) NOT NULL,
-  `language` varchar(10) NOT NULL,
-  `scheduleId` int(11) NOT NULL,
-  `maxStudents` int(11) NOT NULL
+CREATE TABLE IF NOT EXISTS 'course' (
+  'courseId' int(11) NOT NULL,
+  'type' varchar(10) NOT NULL,
+  'language' varchar(10) NOT NULL,
+  'scheduleId' int(11) NOT NULL,
+  'maxStudents' int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `course`
+-- Dumping data for table 'course'
 --
 
-INSERT INTO `course` (`courseId`, `type`, `language`, `scheduleId`, `maxStudents`) VALUES
+INSERT INTO 'course' ('courseId', 'type', 'language', 'scheduleId', 'maxStudents') VALUES
 (1, 'Regular', 'English', 1, 20),
 (2, 'Regular', 'Tamil', 2, 20),
 (3, 'Truck', 'English', 3, 20);
@@ -46,21 +46,21 @@ INSERT INTO `course` (`courseId`, `type`, `language`, `scheduleId`, `maxStudents
 -- --------------------------------------------------------
 
 --
--- Table structure for table `schedule`
+-- Table structure for table 'schedule'
 --
 
-CREATE TABLE IF NOT EXISTS `schedule` (
-  `scheduleId` int(5) NOT NULL,
-  `day` varchar(10) NOT NULL,
-  `dayStart` datetime NOT NULL,
-  `dayEnd` datetime NOT NULL
+CREATE TABLE IF NOT EXISTS 'schedule' (
+  'scheduleId' int(5) NOT NULL,
+  'day' varchar(10) NOT NULL,
+  'dayStart' datetime NOT NULL,
+  'dayEnd' datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `schedule`
+-- Dumping data for table 'schedule'
 --
 
-INSERT INTO `schedule` (`scheduleId`, `day`, `dayStart`, `dayEnd`) VALUES
+INSERT INTO 'schedule' ('scheduleId', 'day', 'dayStart', 'dayEnd') VALUES
 (1, 'Monday', '2017-05-18 10:00:00', '2017-05-18 12:00:00'),
 (2, 'Wednesday', '2017-05-20 14:00:00', '2017-05-20 16:00:00'),
 (3, 'Saturday', '2017-05-22 12:00:00', '2017-05-22 14:00:00');
@@ -68,29 +68,29 @@ INSERT INTO `schedule` (`scheduleId`, `day`, `dayStart`, `dayEnd`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `students`
+-- Table structure for table 'students'
 --
 
-CREATE TABLE IF NOT EXISTS `students` (
-  `studentId` int(11) NOT NULL,
-  `firstName` varchar(18) NOT NULL,
-  `lastName` varchar(18) NOT NULL,
-  `phoneNumber` varchar(15) NOT NULL,
-  `emergencyPhoneNumber` varchar(15) NOT NULL,
-  `email` varchar(30) NOT NULL,
-  `address` varchar(50) NOT NULL,
-  `birthdate` date NOT NULL,
-  `balance` double(7,2) NOT NULL,
-  `balanceDueDate` date NOT NULL,
-  `courseID` int(11) NOT NULL,
-  `language` varchar(10) NOT NULL
+CREATE TABLE IF NOT EXISTS 'students' (
+  'studentId' int(11) NOT NULL,
+  'firstName' varchar(18) NOT NULL,
+  'lastName' varchar(18) NOT NULL,
+  'phoneNumber' varchar(15) NOT NULL,
+  'emergencyPhoneNumber' varchar(15) NOT NULL,
+  'email' varchar(30) NOT NULL,
+  'address' varchar(50) NOT NULL,
+  'birthdate' date NOT NULL,
+  'balance' double(7,2) NOT NULL,
+  'balanceDueDate' date NOT NULL,
+  'courseID' int(11) NOT NULL,
+  'language' varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `students`
+-- Dumping data for table 'students'
 --
 
-INSERT INTO `students` (`studentId`, `firstName`, `lastName`, `phoneNumber`, `emergencyPhoneNumber`, `email`, `address`, `birthdate`, `balance`, `balanceDueDate`, `courseID`, `language`) VALUES
+INSERT INTO 'students' ('studentId', 'firstName', 'lastName', 'phoneNumber', 'emergencyPhoneNumber', 'email', 'address', 'birthdate', 'balance', 'balanceDueDate', 'courseID', 'language') VALUES
 (1, 'John', 'Doe', '(514) 239-4920', '(450) 996-8200', 'john@doe.com', '7483 Sherbrooke Street', '1990-11-11', 800.99, '2017-04-11', 1, 'English'),
 (2, 'Austin', 'Forte', '(514) 138-8298', '(450) 253-8729', 'austin@forte.com', '9876 Texas Street', '1999-12-13', 562.56, '2017-04-29', 2, 'English'),
 (3, 'Sergiu', 'Gobby', '(514) 993-4111', '(450) 802-3849', 'sergiu@gobby.com', '1234567 Hi Road', '1988-07-18', 50.00, '2017-04-03', 1, 'Tamil'),
@@ -120,22 +120,22 @@ INSERT INTO `students` (`studentId`, `firstName`, `lastName`, `phoneNumber`, `em
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Table structure for table 'users'
 --
 
-CREATE TABLE IF NOT EXISTS `users` (
-  `userId` int(9) NOT NULL,
-  `userType` varchar(10) NOT NULL,
-  `email` varchar(30) NOT NULL,
-  `password` varchar(20) NOT NULL,
-  `studentId` int(9) NOT NULL
+CREATE TABLE IF NOT EXISTS 'users' (
+  'userId' int(9) NOT NULL,
+  'userType' varchar(10) NOT NULL,
+  'email' varchar(30) NOT NULL,
+  'password' varchar(20) NOT NULL,
+  'studentId' int(9) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `users`
+-- Dumping data for table 'users'
 --
 
-INSERT INTO `users` (`userId`, `userType`, `email`, `password`, `studentId`) VALUES
+INSERT INTO 'users' ('userId', 'userType', 'email', 'password', 'studentId') VALUES
 (1, 'admin', 'admin@gmail.com', 'admin', 0),
 (2, 'student', 'student1@gmail.com', 'student1', 1),
 (3, 'student2', 'student2@gmail.com', 'student2', 2),
@@ -146,28 +146,28 @@ INSERT INTO `users` (`userId`, `userType`, `email`, `password`, `studentId`) VAL
 --
 
 --
--- Indexes for table `course`
+-- Indexes for table 'course'
 --
-ALTER TABLE `course`
-  ADD PRIMARY KEY (`courseId`), ADD KEY `scheduleId` (`scheduleId`), ADD KEY `courseId` (`courseId`), ADD KEY `scheduleId_2` (`scheduleId`), ADD KEY `courseId_2` (`courseId`), ADD KEY `courseId_3` (`courseId`,`scheduleId`), ADD KEY `courseId_4` (`courseId`,`scheduleId`);
+ALTER TABLE 'course'
+  ADD PRIMARY KEY ('courseId'), ADD KEY 'scheduleId' ('scheduleId'), ADD KEY 'courseId' ('courseId'), ADD KEY 'scheduleId_2' ('scheduleId'), ADD KEY 'courseId_2' ('courseId'), ADD KEY 'courseId_3' ('courseId','scheduleId'), ADD KEY 'courseId_4' ('courseId','scheduleId');
 
 --
--- Indexes for table `schedule`
+-- Indexes for table 'schedule'
 --
-ALTER TABLE `schedule`
-  ADD PRIMARY KEY (`scheduleId`), ADD KEY `scheduleId` (`scheduleId`);
+ALTER TABLE 'schedule'
+  ADD PRIMARY KEY ('scheduleId'), ADD KEY 'scheduleId' ('scheduleId');
 
 --
--- Indexes for table `students`
+-- Indexes for table 'students'
 --
-ALTER TABLE `students`
-  ADD PRIMARY KEY (`studentId`), ADD UNIQUE KEY `studentId` (`studentId`), ADD KEY `courseID` (`courseID`), ADD KEY `courseID_2` (`courseID`), ADD KEY `studentId_2` (`studentId`,`courseID`);
+ALTER TABLE 'students'
+  ADD PRIMARY KEY ('studentId'), ADD UNIQUE KEY 'studentId' ('studentId'), ADD KEY 'courseID' ('courseID'), ADD KEY 'courseID_2' ('courseID'), ADD KEY 'studentId_2' ('studentId','courseID');
 
 --
--- Indexes for table `users`
+-- Indexes for table 'users'
 --
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`userId`), ADD KEY `userId` (`userId`,`studentId`);
+ALTER TABLE 'users'
+  ADD PRIMARY KEY ('userId'), ADD KEY 'userId' ('userId','studentId');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
